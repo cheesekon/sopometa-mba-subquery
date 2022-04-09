@@ -1,0 +1,49 @@
+type StarterEntity @entity {
+
+  id: ID! #id is a required field
+
+  field1: Int!
+
+  field2: String #filed2 is an optional field
+
+  field3: BigInt
+
+  field4: Date
+
+  field5: Boolean
+
+
+
+}
+
+type Transaction @entity {
+
+  id: ID! # Transaction hash
+
+  blockNumber: Int
+
+  blockTimestamp: Date!
+
+  tokenId: BigInt!
+
+  to: String!
+
+  from: String!
+
+  contractAddress: String!
+
+}
+
+type Order @entity {
+  id: ID! # Transaction hash
+
+  owner: String!
+
+  contractAddress: String!
+  tokenId: BigInt!
+  sopoId: BigInt!
+
+  onSale: Boolean!
+  price: Float!
+
+}
