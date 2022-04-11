@@ -8,13 +8,13 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256",
         "name": "sopo_id",
         "type": "uint256"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256",
         "name": "price",
         "type": "uint256"
@@ -27,19 +27,19 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "from",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "to",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256",
         "name": "sopo_id",
         "type": "uint256"
@@ -70,19 +70,19 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "from",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "to",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256",
         "name": "sopo_id",
         "type": "uint256"
@@ -107,19 +107,19 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "from",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "to",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256",
         "name": "sopo_id",
         "type": "uint256"
@@ -138,19 +138,19 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "from",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "to",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256",
         "name": "sopo_id",
         "type": "uint256"
@@ -187,19 +187,19 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "from",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
         "name": "to",
         "type": "address"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "uint256",
         "name": "sopo_id",
         "type": "uint256"
@@ -232,6 +232,11 @@
         "internalType": "uint256",
         "name": "sopoid",
         "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "whooffered",
+        "type": "address"
       }
     ],
     "name": "acceptoffer",
@@ -329,24 +334,6 @@
       }
     ],
     "name": "cancelsell",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "sopoid",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "newprice",
-        "type": "uint256"
-      }
-    ],
-    "name": "changeprice",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -457,6 +444,25 @@
         "type": "uint256"
       }
     ],
+    "name": "nft_offers",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "name": "nft_owner",
     "outputs": [
       {
@@ -479,33 +485,9 @@
     "name": "nft_status",
     "outputs": [
       {
-        "internalType": "enum flatsea.Status",
+        "internalType": "enum Sopometa.Status",
         "name": "",
         "type": "uint8"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "nftoffers",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "who",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "offer",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -669,6 +651,25 @@
         "internalType": "bool",
         "name": "",
         "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "whose_offer",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
