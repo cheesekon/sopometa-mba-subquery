@@ -25,16 +25,16 @@
   },
   "devDependencies": {
     "@polkadot/api": "^7.12.1",
-    "@subql/cli": "latest",
-    "@subql/types": "latest",
-    "moonbeam-types-bundle": "^2.0.3",
+    "@subql/cli": "^0.23.0",
+    "@subql/contract-processors": "^0.5.4",
+    "@subql/types": "^0.14.0",
     "typescript": "^4.6.2"
   },
-  "exports": {
-    "chaintypes": "src/chaintypes.ts"
-  },
   "dependencies": {
-    "@subql/contract-processors": "^0.5.4",
+    "moonbeam-types-bundle": "^2.0.3",
     "ethers": "^5.6.2"
+  },
+  "exports": {
+    "chaintypes": "./src/chaintypes.ts"
   }
 }
