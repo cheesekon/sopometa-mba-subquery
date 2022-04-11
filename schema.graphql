@@ -34,7 +34,7 @@ type Transaction @entity {
 
 }
 
-type Order @entity {
+type SopoItem @entity {
   id: ID! # Transaction hash
 
   owner: String!

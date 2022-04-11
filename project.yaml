@@ -7,65 +7,16 @@ description: >-
 repository: 'https://github.com/cheesekon/sopometa-mba-subquery'
 schema:
   file: ./schema.graphql
+  
 network:
   endpoint: wss://moonbeam-alpha.api.onfinality.io/public-ws
   genesisHash: '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527'
   dictionary: 'https://sz.api.subquery.network/sq/subquery/moonbase-alpha-dictionary'
   chaintypes:
     file: ./dist/chaintypes.js
+
 dataSources:
-  - kind: substrate/Runtime
-    startBlock: 1970000
-    mapping:
-      file: ./dist/index.js
-      handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Deposit
-        - handler: handleCall
-          kind: substrate/CallHandler
-  - kind: substrate/Moonbeam
-    startBlock: 1970000
-    processor:
-      file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
-      options:
-        # Must be a key of assets
-        abi: "erc721"
-        address: "0xe912d5056ECdE3BaB1286E653FC32bd684D3e6C8"
-    assets:
-      erc721:
-        file: "./erc721.abi.json"
-    mapping:
-      file: './dist/index.js'
-      handlers:
-        - handler: handleMoonriverEvent
-          kind: substrate/MoonbeamEvent
-          filter:
-            ## Topics that follow Ethereum JSON-RPC log filters
-            ## https://docs.ethers.io/v5/concepts/events/
-            ## With a couple of added benefits:
-            ##  - Values don't need to be 0 padded
-            ##  - Event fragments can be provided and automatically converted to their id
-            topics:
-              ## Example valid values:
-              # - '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
-              # - Transfer(address,address,u256)
-              # - Transfer(address from,address to,uint256 value)
-
-              ## Example of OR filter, will capture Transfer or Approval events
-              # - - 'Transfer(address indexed from,address indexed to,uint256 value)'
-              #   - 'Approval(address indexed owner, address indexed spender, uint256 value)'
-
-              - Transfer(address from,address to,uint256 tokenId)
-              ## topics[1] to topics[3] are the indexed values
-              - null
-              - null
-              - null
-  - kind: substrate/Moonbeam
+ - kind: substrate/Moonbeam
     startBlock: 1970000
     processor:
       file: './node_modules/@subql/contract-processors/dist/moonbeam.js'
